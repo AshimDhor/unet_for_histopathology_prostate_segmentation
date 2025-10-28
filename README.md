@@ -4,45 +4,6 @@
 
 Implementation of U-Net architecture for automated segmentation of prostate glands in histopathological images. This project provides accurate gland boundary detection from H&E stained prostate biopsy specimens.
 
-## Dataset
-
-The dataset consists of whole-slide images of prostate biopsy specimens from 150 male patients (median age 63.2 years, range 41–86 years).
-
-### Dataset Statistics
-- **Total Images**: 1,500 (1000 training, 500 test)
-- **Image Size**: 1500×1500 pixels
-- **Magnification**: 100x (0.934 μm/pixel)
-- **Staining**: H&E (Hematoxylin and Eosin)
-- **Total Gland Annotations**: 18,851
-- **Scanner**: Hamamatsu NanoZoomer S210
-
-### Dataset Structure
-```
-Data_MS/2_Ring/
-├── train/
-│   ├── IMAGES/
-│   └── MANUAL GLANDS/
-└── test/
-    ├── IMAGES/
-    └── MANUAL GLANDS/
-```
-
-**Dataset Source**: https://data.mendeley.com/datasets/h8bdwrtnr5/1
-
-## Model Architecture
-
-U-Net with encoder-decoder structure:
-- **Encoder**: 4 downsampling blocks with max pooling
-- **Bottleneck**: 1024 channels at deepest layer
-- **Decoder**: 4 upsampling blocks with skip connections
-- **Output**: Single channel binary segmentation
-
-## Requirements
-
-- Python 3.8+
-- PyTorch 2.0+
-- CUDA-capable GPU (recommended)
-
 ## Installation
 
 1. Clone the repository
@@ -184,30 +145,7 @@ Increase number of workers:
 python train.py --num_workers 8
 ```
 
-## Citation
 
-If you use this code, please cite:
-
-```bibtex
-@misc{prostate_gland_segmentation_2024,
-  title={UNet for Histopathology Prostate Segmentation},
-  author={Ashim Dhor},
-  year={2024},
-  url={https://github.com/AshimDhor/unet_for_histopathology_prostate_segmentation}
-}
-```
-
-Original U-Net paper:
-```bibtex
-@inproceedings{ronneberger2015unet,
-  title={U-Net: Convolutional Networks for Biomedical Image Segmentation},
-  author={Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
-  booktitle={MICCAI 2015},
-  pages={234--241},
-  year={2015},
-  publisher={Springer}
-}
-```
 
 ## License
 
